@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Homework</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    var players	 = ["terrell owens", "randy moss", "chad johnson"];
+
+  function runplayers() {
+
+        var players = $(this).attr("players");
+       
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + players + "&api_key=dc6zaTOxFJmzC&limit=10";
+        $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+            .done(function(response) {
+
+                for (var i = 0; i < response.data.length; i++) {
+                    var playerDiv = $("<div>");
+                    var p = $("<p>").text("Rating: " + response.data[i].rating);
+                    var playerImage = $("<img>");
+                    var button = $("<button>")
+                    playerImage.attr("src", response.data[i].images.fixed_height.url);
+                    playerDiv.append(p);
+                    playerDiv.append(playerImage);
+                    button.
+                    console.log(this);
+
+                };
+            function renderButtons() {}
+            });
+    };
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
